@@ -1,0 +1,103 @@
+body{
+    font-family: Arial, sans-serif;
+    background:url("images/background.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+form {
+    max-width: 400px;
+    margin-top: 100px ;
+    margin-left: 530px;
+    padding: 20px;
+    background:rgba(0,0,0,0.3);   
+    border-radius: 10px;
+}
+h2{
+    color: aliceblue;
+    font-size: 32px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: aliceblue;
+    margin-left: 30px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+
+button {
+    background-color: #89CFF0;
+    color: black;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 160px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ADD8E6;
+    
+}
+.popup {
+    font-size: 25px;
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:  #89CFF0;
+    color: black;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.password-field {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 37px;
+    top: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+}
+
+/* Styles for the eye icon */
+.toggle-password:before {
+    content: "\f06e"; /* Unicode character for an eye icon */
+    font-family: FontAwesome;
+    color: #666;
+    
+}
+
+.password-hidden .toggle-password:before {
+    content: "\f070"; /* Unicode character for a crossed-out eye icon */
+}
+
+@media(max-width:700px){
+    form {
+        padding: 10px;
+    }
+
+    input {
+        padding: 8px;
+        margin-left: 10px;
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function validateForm() {
+    // Add your form validation logic here
+
+    // If the form is valid, show the pop-up
+    if (isFormValid()) {
+        showPopup();
+    }
+
+    return false; // Prevent form submission for this example
+}
+
+function isFormValid() {
+    // Add your form validation logic here
+     var nameInput = document.getElementById("username");
+            var nameValue = nameInput.value;
+
+            // Regular expression to allow only alphabets and numbers
+            var regex = /^[A-Za-z0-9]+$/;
+
+            if (!regex.test(nameValue)) {
+                alert("Username should contain only alphabets and numbers.");
+                nameInput.value = ""; // Clear the input field
+                return false;
+            }
+    
+            var emailInput = document.getElementById("email");
+            var emailValue = emailInput.value;
+
+            // Regular expression for email validation
+            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+            if (!emailRegex.test(emailValue)) {
+                alert("Please enter a valid email address.");
+                emailInput.value = ""; // Clear the input field
+                return false;
+            }
+    // Return true if the form data is valid, otherwise return false
+    return true; // For this example, always returning true
+}
+
+function showPopup() {
+    var popup = document.createElement("div");
+    popup.className = "popup";
+    popup.innerHTML = "Registration Successful!";
+
+    document.body.appendChild(popup);
+
+    setTimeout(function () {
+        popup.style.display = "none";
+    }, 3000); // Hide the pop-up after 3 seconds
+}
+     
+    function togglePasswordVisibility(icon) {
+    var passwordField = icon.parentElement;
+    var passwordInput = passwordField.querySelector("input");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        passwordField.classList.add("password-visible");
+    } else {
+        passwordInput.type = "password";
+        passwordField.classList.remove("password-visible");
+    }
+}
+
+    </script>
+    
+</head>
+<body>
+    <section class="form1">
+        <form id="registration-form" action="process_registration.php" method="post" onsubmit="return validateForm() &&  togglePasswordVisibility(icon);">
+        <h2>Registration Form</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe" pattern="^[a-zA-Z ]+$" title="Only letters and spaces are allowed">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="john@example.com">
+            
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required placeholder="johndoe123" >
+
+        <label for="password">Password:</label>
+        <div class="password-field">
+            <input type="password" id="password" name="password" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility(this)"></span>
+        </div>
+
+        <!-- Add more fields as needed -->
+
+        <button name="submit" type="submit">Register</button>
+    </form>
+    </section>
+</body>
+</html>
